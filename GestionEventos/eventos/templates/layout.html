@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SISTEMA DE GESTION DE EVENTOS</title>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/shop.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet"> <!-- Archivo de estilos personalizados -->
+  </head>
+
+  <body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-danger" href="{% url 'lista_eventos' %}">SISTEMA DE GESTION DE EVENTOS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-danger" href="{% url 'lista_eventos' %}">Inicio
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="#">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="#">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="#">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <!-- Barra lateral -->
+        <div class="col-lg-3">
+          <h1 class="my-4 text-danger">Eventos</h1>
+          <div class="list-group">
+            {% block eventos  %}{% endblock %}
+          </div>
+        </div>
+        <!-- Contenido principal -->
+        <div class="col-lg-9">
+          {% block content %} 
+            <div class="jumbotron bg-dark text-danger">
+              <h2>Bienvenido a Nuestros Evento Personalizado</h2>
+              <p>Descubre lo que tenemos para ofrecer.</p>
+              <a class="btn btn-danger btn-lg" href="#" role="button">Ver Eventos</a>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card bg-dark text-danger">
+                  <img src="{% static 'images/event1.jpg' %}" class="card-img-top" alt="Evento 1">
+                  <div class="card-body">
+                    <h5 class="card-title">Evento 1</h5>
+                    <p class="card-text">Descripción del Evento 1.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card bg-dark text-danger">
+                  <img src="{% static 'images/event2.jpg' %}" class="card-img-top" alt="Evento 2">
+                  <div class="card-body">
+                    <h5 class="card-title">Evento 2</h5>
+                    <p class="card-text">Descripción del Evento 2.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card bg-dark text-danger">
+                  <img src="{% static 'images/event3.jpg' %}" class="card-img-top" alt="Evento 3">
+                  <div class="card-body">
+                    <h5 class="card-title">Evento 3</h5>
+                    <p class="card-text">Descripción del Evento 3.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  </body>
+</html>
+  

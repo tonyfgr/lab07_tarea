@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block eventos %}
+  <div class="list-group">
+    <a href="{% url 'lista_eventos' %}" class="list-group-item list-group-item-action list-group-item-dark">Lista de Eventos</a>
+    <a href="{% url 'lista_usuarios' %}" class="list-group-item list-group-item-action list-group-item-dark">Lista de Usuarios</a>
+    <a href="{% url 'lista_registros_evento' %}" class="list-group-item list-group-item-action list-group-item-dark">Lista de Registros</a>
+    <a href="{% url 'crear_evento' %}" class="list-group-item list-group-item-action list-group-item-dark">Crear Evento</a>
+    <a href="{% url 'crear_usuario' %}" class="list-group-item list-group-item-action list-group-item-dark">Crear Usuario</a>
+    <a href="{% url 'crear_registro_evento' %}" class="list-group-item list-group-item-action list-group-item-dark">Crear Registro de Evento</a>
+  </div>
+{% endblock %}
+{% block content %}
+  <div class="row">
+    {% for evento_info in eventos_con_usuarios %}
+    <div class="col-lg-4 col-md-6 mt-4">
+        <div class="card h-100">
+
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="{% url 'detalle_evento' evento_info.evento.id %}">{{ evento_info.evento.evento }}</a>
+                </h4>
+                <h5>{{ evento_info.evento.fecha }}</h5>
+                <p class="card-text"> Descripción: {{ evento_info.evento.descripcion }}
+                </p>
+                <p class="card-text">Usuarios Registrados: {{ evento_info.cantidad_usuarios }}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
